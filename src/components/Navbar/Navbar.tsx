@@ -27,7 +27,7 @@ export default function Navbar() {
 					</Nav.Link>
 				</Nav>
 				<button onClick={() => switchLanguage("en")}>English</button>
-				<button onClick={() => switchLanguage("ar")}>Arabic</button>
+				<button onClick={() => switchLanguage("ar")}>العربية</button>
 				{cartQuantity > 0 && (
 					<Button
 						onClick={openCart}
