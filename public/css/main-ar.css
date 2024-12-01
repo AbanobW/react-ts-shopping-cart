@@ -1,0 +1,10 @@
+body {
+	direction: rtl;
+	text-align: start;
+	font-family: "Arial", sans-serif; /* Example for Arabic font */
+}
+
+/* Additional RTL styles */
+.navbar {
+	/* Custom styles for RTL navbar */
+}

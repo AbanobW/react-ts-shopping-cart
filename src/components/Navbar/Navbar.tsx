@@ -1,23 +1,33 @@
 import { Button, Container, Nav, Navbar as NavbarBs } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import { useShoppingCart } from "../../context/ShoppingCartContext";
+import { useTranslation } from "react-i18next";
 
 export default function Navbar() {
 	const { openCart, cartQuantity } = useShoppingCart();
+	const { t, i18n } = useTranslation();
+
+	const switchLanguage = (language: string) => {
+		localStorage.setItem("i18nextLng", language);
+		i18n.changeLanguage(language);
+		window.location.reload();
+	};
 	return (
 		<NavbarBs sticky="top" className="bg-white shadow-sm mb-3">
 			<Container>
-				<Nav className="me-auto">
+				<Nav className="w-100 text-start">
 					<Nav.Link to="/" as={NavLink}>
-						Home
+						{t("home")}
 					</Nav.Link>
 					<Nav.Link to="/store" as={NavLink}>
-						Store
+						{t("store")}
 					</Nav.Link>
 					<Nav.Link to="/about" as={NavLink}>
-						About
+						{t("about")}
 					</Nav.Link>
 				</Nav>
+				<button onClick={() => switchLanguage("en")}>English</button>
+				<button onClick={() => switchLanguage("ar")}>Arabic</button>
 				{cartQuantity > 0 && (
 					<Button
 						onClick={openCart}
